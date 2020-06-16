@@ -29,18 +29,5 @@ int main(int argc, char const *argv[]){
            }
        }   
    }   
-  /*
-   else if(argc == 2 && argv[1] == "add")
-   {
-    std::cout << "Informe sua mensagem" << std::endl;
-    getline(std::cin, mensagem);
-    std::cout << mensagem << std::endl;   
-   }
-  
-   else if(argc == 3 && argv[1] == "add")
-   {
-    std::cout << argv[2] << std::endl;   
-   }
-*/
-    return 0;
+  return 0;
 }
