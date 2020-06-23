@@ -4,10 +4,10 @@
 #include "Date.h"
 
 struct Message {
-    Date date;
-
-    void save_message(std::string file_name, std::string mensagem);
-    void list(std::string file_name);
+    DateTime datetime;
+    std::string content;
+   
+    bool equals(Message message);
+    Message(const std::string& message);
 };
-
 #endif
