@@ -9,5 +9,6 @@ struct Message {
    
     bool equals(Message message);
     Message(const std::string& message);
+    Message();
 };
 #endif

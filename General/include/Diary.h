@@ -12,8 +12,10 @@ struct Diary
     size_t messages_size;
     size_t messages_capacity;
 
+    void read_from_file();
     void add(const std::string& message);
-    void write();
+    void write_to_file();
+    void print();
 };
 
 #endif
