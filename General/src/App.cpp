@@ -51,7 +51,7 @@ void App::add()
 void App::add(const std::string message)
 {
     diary.add(message);
-    diary.write_to_file();
+    diary.write_to_file();    
 }
 
 void App::list_messages()

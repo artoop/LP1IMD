@@ -1,37 +1,34 @@
 #include <string>
 #include <ctime>
-#include "Date.h"
+#include <sstream>
 #include <iostream>
+#include "Date.h"
 
-std::string format_current_date(const std::string& format)
+Date::Date(const std::string date)
 {
-    std::time_t time = std::time(nullptr);
-    char result[1024];
-    std::strftime(result, sizeof(result), format.c_str(), std::localtime(&time));
-    return std::string(result);
+    std::stringstream stream(date);
+    char discard;
+
+    stream >> day;
+    stream >> discard;
+    stream >> month;
+    stream >> discard;
+    stream >> year;
 }
 
-std::string get_current_date()
+bool Date::equals(Date date)
 {
-    return format_current_date("%d/%m/%Y");
-}
-
-std::string get_current_time()
-{
-    return format_current_date("%H:%M:%S");
-}
-
-DateTime::DateTime()
-{
-    date = get_current_date();
-    time = get_current_time();
-}
-
-bool DateTime::equals (DateTime datetime)
-{
-    if(datetime.time == time && datetime.date == date)
+    if(date.day == day && date.month == month && date.year == year)
     {
         return true;
     }
     else return false;
+}
+
+Date::Date(){}
+
+std::string Date::to_string()
+{
+    std::string str = std::to_string(day) + "/" + std::to_string(month) + "/" + std::to_string(year);
+    return str;
 }

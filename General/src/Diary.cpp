@@ -51,6 +51,6 @@ void Diary::print()
 {
     for(int i=0; i<messages_size; i++)
     {
-        std::cout << messages[i].datetime.date << " " << messages[i].datetime.time << " : " << messages[i].content << std::endl;
+        std::cout << messages[i].date.to_string() << " " << messages[i].time.to_string() << " : " << messages[i].content << std::endl;
     }
 }

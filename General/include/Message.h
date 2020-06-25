@@ -1,10 +1,12 @@
 #ifndef MESSAGE_H
 #define MESSAGE_H
-
 #include "Date.h"
+#include "Time.h"
+#include "Util.h"
 
 struct Message {
-    DateTime datetime;
+    Date date;
+    Time time;
     std::string content;
    
     bool equals(Message message);

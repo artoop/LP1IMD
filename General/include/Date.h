@@ -3,11 +3,14 @@
 
 #include <string>
 
-struct DateTime {
-    std::string date;
-    std::string time;
+struct Date {
+   Date();
+   unsigned int year;
+   unsigned int month;
+   unsigned int day;
 
-    DateTime();
-    bool equals(DateTime datetime);
+    Date(const std::string date);
+    bool equals(Date date);
+    std::string to_string();
 };
 #endif
