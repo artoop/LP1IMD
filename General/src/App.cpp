@@ -1,4 +1,5 @@
 #include "App.h"
+#include "Diary.h"
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -51,16 +52,11 @@ void App::add()
 void App::add(const std::string message)
 {
     diary.add(message);
-    diary.write_to_file();    
 }
 
 void App::list_messages()
 {
-    for (size_t i=0; i<diary.messages_size; i++)
-    {
-        const Message message = diary.messages[i];
-        std::cout << "-" << message.content << std::endl;
-    }
+    diary.print();
 }
 
 int App::show_usage(const std::string& prog_name)

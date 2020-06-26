@@ -9,7 +9,7 @@ struct Date {
    unsigned int month;
    unsigned int day;
 
-    Date(const std::string date);
+    Date(const std::string str_date);
     bool equals(Date date);
     std::string to_string();
 };

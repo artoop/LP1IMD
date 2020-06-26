@@ -10,7 +10,8 @@ struct Message {
     std::string content;
    
     bool equals(Message message);
-    Message(const std::string& message);
+    Message(const std::string& message_content, const std::string& str_date, const std::string& str_time);
+    Message(const std::string& message_content);
     Message();
 };
 #endif

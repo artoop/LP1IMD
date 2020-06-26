@@ -14,8 +14,7 @@ struct Diary
 
     void read_from_file();
     void add(const std::string& message);
-    void write_to_file();
     void print();
+    void reallocate_messages();
 };
-
 #endif

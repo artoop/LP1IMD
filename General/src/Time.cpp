@@ -4,9 +4,9 @@
 #include <iostream>
 #include "Time.h"
 
-Time::Time(const std::string time)
+Time::Time(const std::string str_time)
 {
-    std::stringstream stream(time);
+    std::stringstream stream(str_time);
     char discard;
 
     stream >> hour;
@@ -29,6 +29,21 @@ Time::Time(){}
 
 std::string Time::to_string()
 {
-    std::string str = std::to_string(hour) + ":" + std::to_string(minute) + ":" + std::to_string(second);
+    std::string str = "";
+    if(hour < 10)
+    {
+       str += "0";
+    }
+    str += std::to_string(hour) + ":";
+    if(minute < 10)
+    {
+        str+= "0";
+    }
+    str += std::to_string(minute) + ":";
+    if(second < 10)
+    {
+        str += "0";
+    }
+    str += std::to_string(second);
     return str;
 }

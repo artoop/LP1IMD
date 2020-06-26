@@ -4,9 +4,9 @@
 #include <iostream>
 #include "Date.h"
 
-Date::Date(const std::string date)
+Date::Date(const std::string str_date)
 {
-    std::stringstream stream(date);
+    std::stringstream stream(str_date);
     char discard;
 
     stream >> day;
@@ -29,6 +29,16 @@ Date::Date(){}
 
 std::string Date::to_string()
 {
-    std::string str = std::to_string(day) + "/" + std::to_string(month) + "/" + std::to_string(year);
+    std::string str = "";
+    if(day < 10)
+    {
+       str += "0";
+    }
+    str += std::to_string(day) + "/";
+    if(month < 10)
+    {
+        str+= "0";
+    }
+    str += std::to_string(month) + "/" + std::to_string(year);
     return str;
 }
