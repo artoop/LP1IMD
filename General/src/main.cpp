@@ -1,6 +1,5 @@
 #include "App.h"
 #include <iostream>
-#include "Diary.h"
 
 int main(int argc, char* argv[])
 {
