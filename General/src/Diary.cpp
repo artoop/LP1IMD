@@ -90,6 +90,20 @@ void Diary::print()
 {
     for(int i=0; i<messages_size; i++)
     {
-        std::cout << messages[i].date.to_string() << " " << messages[i].time.to_string() << " : " << messages[i].content << std::endl;
+        std::cout << messages[i].to_string() << std::endl;
     }
+}
+
+Message* Diary::search(const std::string key)
+{
+    Message* found = nullptr;
+    for(int i=0; i<messages_size; i++)
+    {
+        if(messages[i].content.find(key) != std::string::npos)
+        {
+            found = &messages[i];
+            i = messages_size;
+        }
+    }
+    return found;
 }

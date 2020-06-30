@@ -24,6 +24,11 @@ Message::Message()
 {
 }
 
+std::string Message::to_string()
+{
+    return date.to_string() + " " + time.to_string() + " : " + content;
+}
+
 bool Message::equals(Message message)
 {
     if(message.content == content && date.equals(message.date) && time.equals(message.time))

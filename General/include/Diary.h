@@ -16,5 +16,6 @@ struct Diary
     void add(const std::string& message);
     void print();
     void reallocate_messages();
+    Message* search(const std::string key);
 };
 #endif

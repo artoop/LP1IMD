@@ -13,5 +13,8 @@ struct Message {
     Message(const std::string& message_content, const std::string& str_date, const std::string& str_time);
     Message(const std::string& message_content);
     Message();
+    Message* search(const std::string message);
+    std::string to_string();
+
 };
 #endif

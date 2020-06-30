@@ -33,11 +33,46 @@ int App::run(int argc, char* argv[])
        else if(cmd == "list")
        {
            list_messages();
+       }
+       else if(cmd == "search")
+       {
+           if(argc == 2)
+           {
+               search();
+           }
+           else
+           {
+               search(argv[2]);
+           }
+           
        }  
        else return show_usage(argv[0]);
    }
 
    return 0;
+}
+
+void App::search()
+{
+    std::string key;
+    std::cout << "Informe o(s) termo(s) que quer buscar:  " << std::endl;
+    std::getline(std::cin, key);
+
+    search(key);
+}
+
+void App::search(std::string key)
+{
+    Message* found = diary.search(key);
+    if(found != nullptr)
+    {
+        std::cout << found->to_string() << std::endl;
+    }
+    else
+    {
+        std::cout << "Termo nao encontrado." << std::endl;    
+    }
+    
 }
 
 void App::add()
@@ -64,7 +99,9 @@ int App::show_usage(const std::string& prog_name)
     std::cout << "Uso: " << std::endl;
     std::cout << prog_name << " add <mensagem>" << std::endl;
     std::cout << prog_name << " list" << std::endl;
+    std::cout << prog_name << " search <mensagem>" << std::endl;
     
     return 1;
 }
+
 
