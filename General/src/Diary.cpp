@@ -7,14 +7,10 @@
 Diary::Diary(const std::string& filename)
 {
     file_name = filename;
-    messages_capacity = 10;
-    messages_size = 0;
-
-    messages = new Message[messages_capacity];
     read_from_file();
 }
 
-void Diary::reallocate_messages()
+/*void Diary::reallocate_messages()
 {
     messages_capacity *= 2;
     Message* new_array = new Message[messages_capacity];
@@ -26,7 +22,7 @@ void Diary::reallocate_messages()
 
     delete [] messages;
     messages = new_array;
-}
+}*/
 
 void Diary::read_from_file()
 {
@@ -52,12 +48,11 @@ void Diary::read_from_file()
             {
                 current_content = linha.substr(11);
                 current_time = linha.substr(2, 8);
-                if(messages_size >= messages_capacity)
+                /*if(messages_size >= messages_capacity)
                 {
                     reallocate_messages();
-                }
-                messages[messages_size] = Message(current_content, current_date, current_time);
-                messages_size++;
+                }*/
+                messages.push_back(Message(current_content, current_date, current_time));
             }
         }
     }
@@ -68,15 +63,16 @@ void Diary::add(const std::string& message_content)
 {
     std::ofstream output_file(file_name, std::ios::app);
     Message msg(message_content);
-    bool its_a_new_day = !msg.date.equals(messages[messages_size-1].date);
+    
+    bool its_a_new_day = true;
 
-    if(messages_size >= messages_capacity)
+    if(!messages.empty() && msg.date.equals(messages.back().date))
     {
-        reallocate_messages();
+        its_a_new_day = false;
     }
-    messages[messages_size] = msg;
-    messages_size++;
 
+    messages.push_back(msg);
+    
     if(its_a_new_day)
     {
         output_file << std::endl << "# " << msg.date.to_string() << std::endl << std::endl;
@@ -88,21 +84,20 @@ void Diary::add(const std::string& message_content)
 
 void Diary::print()
 {
-    for(int i=0; i<messages_size; i++)
+    for(Message m : messages)
     {
-        std::cout << messages[i].to_string() << std::endl;
+        std::cout << m.to_string() << std::endl;
     }
 }
 
-Message* Diary::search(const std::string key)
+std::vector<Message*> Diary::search(const std::string key)
 {
-    Message* found = nullptr;
-    for(int i=0; i<messages_size; i++)
+    std::vector<Message*> found;
+    for(auto &m : messages)
     {
-        if(messages[i].content.find(key) != std::string::npos)
+        if(m.content.find(key) != std::string::npos)
         {
-            found = &messages[i];
-            i = messages_size;
+            found.push_back(&m);
         }
     }
     return found;

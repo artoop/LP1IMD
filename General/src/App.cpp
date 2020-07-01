@@ -63,10 +63,11 @@ void App::search()
 
 void App::search(std::string key)
 {
-    Message* found = diary.search(key);
-    if(found != nullptr)
+    std::vector<Message*> found = diary.search(key);
+    if(!found.empty())
     {
-        std::cout << found->to_string() << std::endl;
+        for(auto m : found)
+            std::cout << m->to_string() << std::endl;
     }
     else
     {
