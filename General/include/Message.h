@@ -15,6 +15,7 @@ struct Message {
     Message();
     Message* search(const std::string message);
     std::string to_string();
+    std::string to_string(std::string format);
 
 };
 #endif

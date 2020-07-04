@@ -82,12 +82,9 @@ void Diary::add(const std::string& message_content)
     std::cout << "Mensagem adicionada!" << std::endl;
 }
 
-void Diary::print()
+std::vector<Message> Diary::list()
 {
-    for(Message m : messages)
-    {
-        std::cout << m.to_string() << std::endl;
-    }
+    return messages;
 }
 
 std::vector<Message*> Diary::search(const std::string key)

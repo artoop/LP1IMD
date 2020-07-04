@@ -13,7 +13,7 @@ struct Diary
 
     void read_from_file();
     void add(const std::string& message);
-    void print();
+    std::vector<Message> list();
 //    void reallocate_messages();
     std::vector<Message*> search(const std::string key);
 };
