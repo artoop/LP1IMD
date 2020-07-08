@@ -14,7 +14,7 @@ class Acc {
         float balance;
 
         Acc();
-        Acc(const std::string& name);
+        Acc(const std::string& name, const std::string& branch);
 
         void withdraw(float amount);
         void deposit(float amount);

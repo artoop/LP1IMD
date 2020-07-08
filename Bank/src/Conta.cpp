@@ -8,12 +8,12 @@ Acc::Acc()
     
 }
 
-Acc::Acc(const std::string& name)
+Acc::Acc(const std::string& name, const std::string& branch_name)
 {
     client = Client(name);
-    branch = Branch("BANCOX");
-
+    branch = Branch(branch_name);
     balance = 0;
+
 }
 
 void Acc::withdraw(float amount)
@@ -31,4 +31,3 @@ void Acc::transfer(float amount, Acc& account)
     balance -= amount;
     account.balance += amount;
 }
-
