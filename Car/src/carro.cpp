@@ -1,5 +1,6 @@
 #include "carro.hpp"
 #include <string>
+#include <vector>
 
 Carro::Carro(string tipo, string placa, int numPortas, int velocidade, string cor, Motor motor){
     this->tipo = tipo;
@@ -8,9 +9,9 @@ Carro::Carro(string tipo, string placa, int numPortas, int velocidade, string co
     this->velocidade = velocidade;
     this->cor = cor;
     this->motor = motor;
-
-    qtd_carros++;
 }
+
+
 
 Carro::Carro(){
     this->cor = "Branco";
@@ -27,9 +28,3 @@ void Carro::freia(int velocidade){
 void Carro::ligaCarro(){
     motor.partida();
 }
-
-int Carro::cont_qtd_carros()
-{
-    return qtd_carros;
-}
-

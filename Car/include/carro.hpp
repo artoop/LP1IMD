@@ -1,3 +1,5 @@
+#ifndef CARRO_HPP
+#define CARRO_HPP
 #include <string>
 #include "motor.hpp"
 
@@ -12,13 +14,11 @@ class Carro{
     string cor;
     Motor motor;
 
-    int qtd_carros;
-
     Carro(string tipo, string placa, int numPortas, int velocidade, string cor, Motor motor);
     Carro();
 
     void acelera(int velocidade);
     void freia(int velocidade);
     void ligaCarro();
-    int cont_qtd_carros();
 };
+#endif

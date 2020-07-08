@@ -9,11 +9,14 @@ ID = 20190045396
 
 all: $(EXEC)
 
-$(EXEC): main.o carro.o motor.o
+$(EXEC): main.o lista.o carro.o motor.o
 	$(CXX) $(CXX_FLAGS) -o $@ $^
 
 main.o: src/main.cpp
 	$(CXX) $(CXX_FLAGS) -c src/main.cpp
+
+lista.o: src/lista.cpp include/lista.hpp
+	$(CXX) $(CXX_FLAGS) -c src/lista.cpp
 
 carro.o: src/carro.cpp include/carro.hpp
 	$(CXX) $(CXX_FLAGS) -c src/carro.cpp

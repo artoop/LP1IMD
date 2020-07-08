@@ -1,13 +1,18 @@
 #include <iostream>
 #include "carro.hpp"
+#include "lista.hpp"
 
 using namespace std;
 
 int main(){
+    Lista carros;
+        
     Carro c;
     c.tipo = "Sedan";
     c.numPortas = 4;
     c.placa = "XYZ-0102";
+
+    carros.adicionar(c);
 
     cout << "Tipo do carro: " << c.tipo << endl;
     cout << "Quantidade de portas: " << c.numPortas << endl;
@@ -18,6 +23,7 @@ int main(){
     cout << "A velocidade atual é: " << c.velocidade << "KM/H" << endl;
     c.freia (20);
     cout << "A velocidade atual é: " << c.velocidade << "KM/H" << endl;
+    cout << "----------------" << endl << "Quantidade de carros cadastrados: " << carros.qtd_carros() << endl;
 
     return 0;
 }
