@@ -1,33 +1,33 @@
-#include "App.h"
-#include "Banco.h"
+#include "App.hpp"
+#include "Banco.hpp"
 #include <iostream>
 #include <string>
 
 App::App()
 {
-    bank = Bank();
+    banco = Banco();
 }
 
 void App::add()
 {
-    std::string name;
-    std::string branch;
+    std::string nome;
+    std::string agencia;
     std::cout << "Informe o nome do cliente: " << std::endl;
-    std::getline(std::cin, name);
+    std::getline(std::cin, nome);
     std::cout << std::endl << "Informe o nome da agencia: " << std::endl;
-    std::getline(std::cin, branch);
+    std::getline(std::cin, agencia);
 
-    add(name, branch);
+    add(nome, agencia);
 }
 
-void App::add(std::string name, std::string branch)
+void App::add(std::string nome, std::string agencia)
 {
-    bank.add(name, branch);
+    banco.add(nome, agencia);
 }
 
 void App::show_qty()
 {
-    std::cout << "Contas cadastradas: " << bank.acc_qty() << std::endl;
+    std::cout << "Contas cadastradas: " << banco.qtd_acc() << std::endl;
 }
 
 

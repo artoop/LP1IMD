@@ -1,19 +1,19 @@
-#include "Banco.h"
+#include "Banco.hpp"
 #include <vector>
 #include <iostream>
 
-Bank::Bank()
+Banco::Banco()
 {
 
 }
 
-void Bank::add(std::string name, std::string branch)
+void Banco::add(std::string nome, std::string agencia)
 {
-    Acc account(name, branch);
-    accounts.push_back(account);
+    Acc conta(nome, agencia);
+    contas.push_back(conta);
 }
 
-int Bank::acc_qty()
+int Banco::qtd_acc()
 {
-    return accounts.size();
+    return contas.size();
 }

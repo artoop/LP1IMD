@@ -1,5 +1,5 @@
-#include "App.h"
-#include "Banco.h"
+#include "App.hpp"
+#include "Banco.hpp"
 #include <iostream>
 
 int main(){

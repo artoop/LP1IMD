@@ -1,19 +1,19 @@
-#ifndef APP_H
-#define APP_H
+#ifndef APP_HPP
+#define APP_HPP
 
-#include "Banco.h"
+#include "Banco.hpp"
 #include <string>
 
 class App {
     
     public:
-        Bank bank;
+        Banco banco;
 
         App();
         
         int run();
         void add();
-        void add(std::string name, std::string branch);
+        void add(std::string nome, std::string agencia);
         void show_qty();
         void print_menu();
 };

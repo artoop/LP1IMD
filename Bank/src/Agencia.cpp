@@ -1,32 +1,32 @@
-#include "Agencia.h"
+#include "Agencia.hpp"
 #include <iostream>
 
-Branch::Branch(std::string name)
+Agencia::Agencia(std::string nome)
 {
-    setName(name);
-    setId("xxx-x");
+    this->nome = nome;
+    id = "xxx-x";
 }
 
-Branch::Branch()
+Agencia::Agencia()
 {
 }
 
-void Branch::setName(std::string name)
+void Agencia::setNome(std::string nome)
 {
-    this->name = name;
+    this->nome = nome;
 }
 
-std::string Branch::getName()
+std::string Agencia::getNome()
 {
-    return name;
+    return nome;
 }
 
-void Branch::setId(std::string id)
+void Agencia::setId(std::string id)
 {
     this->id = id;
 }
 
-std::string Branch::getId()
+std::string Agencia::getId()
 {
     return id;
 }

@@ -1,32 +1,32 @@
-#include "Cliente.h"
+#include "Cliente.hpp"
 #include <iostream>
 
-Client::Client(std::string name)
+Cliente::Cliente(std::string nome)
 {
-    setName(name);
-    setCpf("000.000.000-00");
+    this->nome = nome;
+    cpf = "000.000.000-00";
 }
 
-Client::Client()
+Cliente::Cliente()
 {
 }
 
-void Client::setName(std::string name)
+void Cliente::setNome(std::string nome)
 {
-    this->name = name;
+    this->nome = nome;
 }
 
-void Client::setCpf(std::string cpf)
+void Cliente::setCpf(std::string cpf)
 {
     this->cpf = cpf;
 }
 
-std::string Client::getName()
+std::string Cliente::getNome()
 {
-    return name;
+    return nome;
 }
 
-std::string Client::getCpf()
+std::string Cliente::getCpf()
 {
     return cpf;
 }

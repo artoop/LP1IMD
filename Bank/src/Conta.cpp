@@ -1,33 +1,33 @@
 #include <iostream>
-#include "Conta.h"
-#include "Agencia.h"
-#include "Cliente.h"
+#include "Conta.hpp"
+#include "Agencia.hpp"
+#include "Cliente.hpp"
 
 Acc::Acc()
 {
     
 }
 
-Acc::Acc(const std::string& name, const std::string& branch_name)
+Acc::Acc(const std::string& nome, const std::string& nome_agencia)
 {
-    client = Client(name);
-    branch = Branch(branch_name);
-    balance = 0;
+    cliente = Cliente(nome);
+    agencia = Agencia(agencia);
+    saldo = 0;
 
 }
 
-void Acc::withdraw(float amount)
+void Acc::saque(float quantia)
 {
-    balance -= amount;
+    saldo -= quantia;
 }
 
-void Acc::deposit(float amount)
+void Acc::deposito(float quantia)
 {
-    balance += amount;
+    saldo += quantia;
 }
 
-void Acc::transfer(float amount, Acc& account)
+void Acc::transferencia(float quantia, Acc& conta)
 {
-    balance -= amount;
-    account.balance += amount;
+    saldo -= quantia;
+    conta.saldo += quantia;
 }
