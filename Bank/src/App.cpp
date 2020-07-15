@@ -56,5 +56,5 @@ int App::run()
             default: std::cout << "Opção inválida." << std::endl; break;
         }
     }
-    return option;   
+    return option;
 }

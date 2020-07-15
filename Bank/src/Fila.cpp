@@ -1,5 +1,8 @@
 #include "Fila.hpp"
 #include <iostream>
+#include <string>
+#include "Cliente.hpp"
+#include "ClientePJ.hpp"
 
 template<class T>
 Fila<T>::Fila(int tamanho)
@@ -46,16 +49,16 @@ void Fila<T>::adiciona(T item)
 }
 
 template<class T>
-T Fila<T>::remove()
+T* Fila<T>::remove()
 {
     if(isEmpty())
 	{
 		std::cout << "Fila vazia. Operacao nao realizada" << std::endl;
-		return NULL;
+		return nullptr;
 	}
 	else
 	{
-	    T rem = clientes[primeiro];
+	    T* rem = &clientes[primeiro];
 	    primeiro = (primeiro+1)%tamanho;
 		
 	    if (primeiro == ultimo)
@@ -69,10 +72,10 @@ T Fila<T>::remove()
 }
 
 template<class T>
-T Fila<T>::proximo()
+T* Fila<T>::proximo()
 {
-    if(!isEmpty())return clientes[primeiro];
-    else return NULL;
+    if(!isEmpty())return &clientes[primeiro];
+    else return nullptr;
 }
 
 template<class T>
@@ -80,3 +83,29 @@ int Fila<T>::contagem()
 {
     return cont;
 }
+
+template<class T>
+void Fila<T>::imprime()
+{
+    if(isEmpty())
+    {
+        std::cout << "Fila vazia." << std::endl;
+    }
+    else
+    {
+        for(int i=0; i<cont; i++)
+        {
+           std::cout << "posi " << (primeiro+i)%tamanho << ": " << std::endl;
+           std::cout << clientes[(i+primeiro)%tamanho] << std::endl << std::endl;
+        }
+    }
+        
+}
+
+
+template class Fila<int>;
+template class Fila<float>;
+template class Fila <double>;
+template class Fila<std::string>;
+//template class Fila<Cliente>;
+//template class Fila<ClientePJ>;

@@ -14,11 +14,12 @@ class Fila {
     Fila(int tamanho);
 
     void adiciona(T item);
-    T remove();
-    T proximo();
+    T* remove();
+    T* proximo();
     int contagem();
     bool isEmpty();
     bool isFull();
+    void imprime();
 
 };
 #endif
