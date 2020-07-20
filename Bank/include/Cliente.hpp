@@ -6,7 +6,6 @@
 class Cliente {
     private:
         std::string nome;
-        std::string cpf;
 
     public:
         Cliente();
@@ -14,9 +13,6 @@ class Cliente {
 
         void setNome(std::string nome);
         std::string getNome();
-        void setCpf(std::string cpf);
-        std::string getCpf();
-
-
 };
+
 #endif
